@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Story Generator</title>
+<style>
+  body {font-family: Arial, sans-serif; text-align: center;}
+  button {font-size: 1.2em; padding: 10px 20px; cursor: pointer;}
+  #result {margin-top: 30px;}
+</style>
+</head>
+<body>
+<h1>Random Story Generator</h1>
+<button onclick="generateStory()">Generate a Story Idea</button>
+<p id="result"></p>
+<script>
+  const settings = [
+  'A remote island',
+  'A distant planet',
+  'Underwater',
+  'A haunted house',
+  'A bustling city',
+  'A medieval castle',
+  'A hidden valley',
+  'A space station',
+  'A magical forest',
+  'A post-apocalyptic wasteland'
+];
+
+const types = [
+  'Mystery',
+  'Sci-fi',
+  'Romance',
+  'Fantasy',
+  'Adventure',
+  'Historical',
+  'Horror',
+  'Comedy',
+  'Thriller',
+  'Dystopian'
+];
+
+const attributes = [
+  'A mysterious artifact',
+  'A forbidden romance',
+  'A long-lost family member',
+  'A hidden treasure',
+  'A secret society',
+  'A powerful magic',
+  'A deadly curse',
+  'A dangerous enemy',
+  'An unexpected ally',
+  'A prophecy to be fulfilled'
+];
+
+const plots = [
+  'A group of strangers must band together to survive.',
+  'A quest to save the world from impending doom.',
+  'A detective must solve a crime before time runs out.',
+  'A young hero embarks on a journey of self-discovery.',
+  'A forbidden love threatens to tear two families apart.',
+  'A team of explorers uncover a hidden civilization.',
+  'A scientist makes a groundbreaking discovery that changes everything.',
+  'A group of friends get more than they bargained for on a trip.',
+  'A hero must overcome their fears to save their people.',
+  'An unlikely duo must work together to foil a sinister plot.'
+];
+
+  function generateStory() {
+    const randomSetting = settings[Math.floor(Math.random() * settings.length)];
+    const randomType = types[Math.floor(Math.random() * types.length)];
+    const randomAttribute = attributes[Math.floor(Math.random() * attributes.length)];
+    const randomPlot = plots[Math.floor(Math.random() * plots.length)];
+
+    const result = `Setting: ${randomSetting}<br>Type: ${randomType}<br>Attribute: ${randomAttribute}<br>Plot: ${randomPlot}`;
+    document.getElementById('result').innerHTML = result;
+  }
+</script>
+</body>
+</html>
