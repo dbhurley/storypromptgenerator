@@ -5,15 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Random Story Generator</title>
 <style>
-  body {font-family: Arial, sans-serif; text-align: center;}
-  button {font-size: 1.2em; padding: 10px 20px; cursor: pointer;}
-  #result {margin-top: 30px;}
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    background-color: #5e9cd1;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+  }
+
+  button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #5e9cd1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  button:hover {
+    background-color: #4785b9;
+  }
+
+  #result {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #result h3 {
+    margin-top: 0;
+  }
+
+  #result p {
+    margin: 0;
+    padding: 5px 0;
+    font-size: 1.2em;
+  }
 </style>
 </head>
 <body>
 <h1>Random Story Generator</h1>
 <button onclick="generateStory()">Generate a Story Idea</button>
-<p id="result"></p>
+<div id="result" style="display:none;">
+  <h3>Your Story Idea</h3>
+  <p id="setting"></p>
+  <p id="type"></p>
+  <p id="attribute"></p>
+  <p id="plot"></p>
+</div>
 <script>
   const settings = [
   'A remote island',
@@ -67,15 +116,19 @@ const plots = [
   'An unlikely duo must work together to foil a sinister plot.'
 ];
 
-  function generateStory() {
-    const randomSetting = settings[Math.floor(Math.random() * settings.length)];
-    const randomType = types[Math.floor(Math.random() * types.length)];
-    const randomAttribute = attributes[Math.floor(Math.random() * attributes.length)];
-    const randomPlot = plots[Math.floor(Math.random() * plots.length)];
+function generateStoryIdea() {
+  const randomSetting = settings[Math.floor(Math.random() * settings.length)];
+  const randomType = types[Math.floor(Math.random() * types.length)];
+  const randomAttribute = attributes[Math.floor(Math.random() * attributes.length)];
+  const randomPlot = plots[Math.floor(Math.random() * plots.length)];
 
-    const result = `Setting: ${randomSetting}<br>Type: ${randomType}<br>Attribute: ${randomAttribute}<br>Plot: ${randomPlot}`;
-    document.getElementById('result').innerHTML = result;
-  }
+  document.getElementById('setting').innerText = `Setting: ${randomSetting}`;
+  document.getElementById('type').innerText = `Type: ${randomType}`;
+  document.getElementById('attribute').innerText = `Attribute: ${randomAttribute}`;
+  document.getElementById('plot').innerText = `Plot: ${randomPlot}`;
+  document.getElementById('result').style.display = 'block';
+}
+
 </script>
 </body>
 </html>
